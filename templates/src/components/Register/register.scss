@@ -1,0 +1,84 @@
+$pink: #ff1552;
+$white: #fff;
+$my_black: #2f3640;
+$orange: #fd7e14;
+$grey: #cecdcdab;
+
+.register_heading {
+  display: flex;
+  justify-content: center;
+  color: $my_black;
+  font-size: 2.3rem;
+  margin-top: 2rem;
+}
+
+#register_form {
+  margin-top: 35px;
+  margin-left: 0rem;
+}
+
+#register_city {
+  width: 35%;
+}
+
+.city,
+.state {
+  position: relative;
+  bottom: 0rem;
+}
+
+#register_btn {
+  position: relative;
+  bottom: 8rem;
+}
+
+.phone {
+  width: 38%;
+  position: relative;
+  bottom: 8.4rem;
+  left: 17.2rem;
+}
+
+.email {
+  position: relative;
+  bottom: 4.2rem;
+  width: 59%;
+}
+
+#register_state {
+  position: relative;
+  left: 13rem;
+  bottom: 4.2rem;
+  width: 42.5%;
+}
+
+#state_placeholder {
+  position: relative;
+  left: 14rem;
+  bottom: 6.8rem;
+}
+
+.reminder {
+  display: flex;
+  color: red;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.my-1 {
+  position: relative;
+  left: 37rem;
+  font-size: 1.1rem;
+  top: 17.8rem;
+}
+
+.my-2 {
+  position: relative;
+  top: 1.6rem;
+  left: -10.5rem;
+  .links {
+    text-decoration: none;
+    color: $orange;
+    font-size: 1.3rem;
+  }
+}
