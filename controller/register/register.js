@@ -1,8 +1,4 @@
-const gravatar = require("gravatar");
-const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
-const jwt = require("jsonwebtoken");
-const config = require("config");
 
 // Import User model
 const User = require("../../models/User");
