@@ -2,6 +2,8 @@ $pink: #ff1552;
 $white: #fff;
 $my_black: #2f3640;
 $orange: #fd7e14;
+$light_orange: #ffb254;
+$dark_orange: #e05a00;
 $grey: #cecdcdab;
 
 .card {
@@ -11,7 +13,7 @@ $grey: #cecdcdab;
   margin-left: 3.5rem;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
     10px 10px 15px rgba(70, 70, 70, 0.12);
-  transition: 0.4s ease-in-out;
+  transition: 0.6s ease-out;
 
   &:hover {
     box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
@@ -19,7 +21,7 @@ $grey: #cecdcdab;
       inset -10px -10px 15px rgba(255, 255, 255, 0.5),
       inset 10px 10px 15px rgba(70, 70, 70, 0.12);
     transform: scale(1.1);
-    transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in;
   }
 }
 
@@ -95,30 +97,202 @@ $grey: #cecdcdab;
 
   button {
     position: relative;
-    // display: inline-block;
-    padding: 5px 10px;
-    background: #f6f6f6;
-    color: $my_black;
-    border-radius: 5px;
-    box-shadow: 2px 2px 2px #888888, -2px -2px 2px $white;
+    padding: 9px 14px;
+    border-radius: 4px;
     border: none;
     outline: none;
-    &:hover {
-      color: $orange;
-      background: white;
-      transition: 0.4s ease-in-out;
-      box-shadow: 2px 2px 2px #888888, -2px -2px 2px $white,
-        inset 2px 2px 2px #888888, inset -2px -2px 2px $white;
-    }
   }
 }
 
 #pickup_btn {
   margin-top: 3rem;
-  margin-left: 0.5rem;
+  margin-left: -0.48rem;
+    
+  button {
+    background: $orange;
+    color: white;
+    box-shadow: 1px 0px 1px #e05a00, -1px 0px 1px #ffb254;
+    transition: 0.4s ease-out;
+
+    &:hover {
+      box-shadow: 2px 2px 5px #e05a00, -2px -2px 5px #ffb254,
+      inset 2px 2px 5px #e05a00, inset -2px -2px 5px #ffb254;
+      transition: 0.2s ease-in;
+    }
+  }
 }
 
 #donate_btn {
-  margin-left: 9.5rem;
-  margin-top: -2.15rem;
+  margin-left: 9.7rem;
+  margin-top: -2.7rem;
+  
+  button {
+    background: #f6f6f6;
+    color: $my_black;
+    box-shadow: -1px -1px 1px white, 1px 1px 1px #888888;
+    transition: 0.4s ease-out;
+
+    &:hover {
+      color: $orange;
+      box-shadow: 2px 2px 5px #888888, -2px -2px 5px white,
+      inset 2px 2px 5px #888888, inset -2px -2px 5px white;
+      transition: 0.2s ease-in;
+    }
+  }
+}
+
+#pickup_modal {
+  position: relative;
+  margin-top: -1rem;
+  margin-left: 21rem;
+  height: 91%;
+  width: 40%;
+  box-shadow: 2px 3px 7px #888888;
+}
+
+#donate_modal {
+  position: relative;
+  margin-top: -1rem;
+  height: 90%;
+  width: 40%;
+  margin-left: 21rem;
+  box-shadow: 2px 3px 7px #888888;
+}
+
+.pickup_form {
+  margin-left: 4rem;
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  #pickup_fields {
+    position: relative;
+    display: block;
+    background-color: white;
+    border: none;
+    color: #0d0d0d;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 5px;
+    width: 80%;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #cecece;
+
+    &:focus,
+    &:valid {
+      outline: none;
+      background-color: #fff;
+      border: 2px solid $orange;
+    }
+  }
+
+  #pickup_btn_2{
+    margin-left: 0.38rem;
+    background-color: $orange;
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    box-shadow: 1px 0px 1px #e05a00, -1px 0px 1px #ffb254;
+    border-radius: 4px;
+    width: 80%;
+    transition: 0.4s ease-out;
+    margin-top: 0.8rem;
+  
+    &:hover {
+      box-shadow: 2px 2px 5px #e05a00, -2px -2px 5px #ffb254,
+      inset 2px 2px 5px #e05a00, inset -2px -2px 5px #ffb254;
+      transition: 0.2s ease-in;
+    }
+  }
+}
+
+.city-1 {
+  width: 40%;
+}
+
+.state-1 {
+  width: 55.4%;
+  margin-left: 9rem;
+  margin-top: -3.28rem;
+}
+
+.item {
+  width: 25%;
+}
+
+.quantity {
+  width: 70%;
+  margin-left: 6rem;
+  margin-top: -3.28rem;
+}
+
+.amount-1 {
+  width: 25%;
+}
+
+.upi-1 {
+  width: 70%;
+  margin-left: 6rem;
+  margin-top: -3.28rem;
+}
+
+.donate_form {
+  margin-left: 4rem;
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  #donate_fields {
+    position: relative;
+    display: block;
+    background-color: white;
+    border: none;
+    color: #0d0d0d;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 5px;
+    width: 80%;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #cecece;
+
+    &:focus,
+    &:valid {
+      outline: none;
+      background-color: #fff;
+      border: 2px solid $orange;
+    }
+  }
+
+  #donate_btn_2{
+    margin-left: 0.38rem;
+    background-color: $orange;
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    box-shadow: 1px 0px 1px #e05a00, -1px 0px 1px #ffb254;
+    border-radius: 4px;
+    width: 80%;
+    transition: 0.4s ease-out;
+    margin-top: 0.8rem;
+  
+    &:hover {
+      box-shadow: 2px 2px 5px #e05a00, -2px -2px 5px #ffb254,
+      inset 2px 2px 5px #e05a00, inset -2px -2px 5px #ffb254;
+      transition: 0.2s ease-in;
+    }
+  }
 }

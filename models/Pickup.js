@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ngoSchema = new mongoose.Schema({
+const PickupSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -13,19 +13,32 @@ const ngoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  type: {
+  state: {
     type: String,
     required: true,
+  },
+  item: {
+    type: String,
+    required: true,
+  },
+  quantity: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+    unique: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  phone: {
-    type: String,
-    required: true,
+  date: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-module.exports = NGO = mongoose.model("ngo", ngoSchema);
+module.exports = Pickup = mongoose.model("pickup", PickupSchema);

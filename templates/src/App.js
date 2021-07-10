@@ -8,13 +8,13 @@ import React, { Fragment, useEffect } from "react";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
-import { loadUserAction } from "./actions/auth";
+// import { loadUserAction } from "./actions/auth";
 
 function App() {
   // [] are added to run the useEffect only once, otherwise it will a conitnous loop
-  useEffect(() => {
-    store.dispatch(loadUserAction);
-  }, []);
+  // useEffect(() => {
+  //   store.dispatch(loadUserAction);
+  // }, []);
 
   return (
     <Provider store={store}>

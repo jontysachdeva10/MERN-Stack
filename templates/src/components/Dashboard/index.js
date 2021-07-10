@@ -9,14 +9,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Ngo from "../NGO";
 import "./dashboard.scss";
-import { set } from "mongoose";
 
 const Dashboard = ({ getNgoWithType, getNgoWithTypeAndCity, ngo: { ngos }, auth: { user } }) => {
-  // const [toggle, setToggle] = useState(false);
-  // const toggler = () => {
-  //   toggle ? setToggle(false) : setToggle(true);
-  // };
-
   const [type, setType] = useState('');
 
   const searchType = (event) => {
@@ -33,39 +27,32 @@ const Dashboard = ({ getNgoWithType, getNgoWithTypeAndCity, ngo: { ngos }, auth:
       <Link className="back-button" to="/">
         <FaSignOutAlt className="fa-arrow" />
       </Link>
-      {/* <form className="form">
-        <div className="form-group dropdown">
-          <select name="state" id="state" data-placeholder=" ">
-            <option value="" disabled selected>State</option>
-            <option>Chandigarh</option>
-            <option>Delhi</option>\
-            <option>Punjab</option>
-          </select>
-        </div>
-      </form> */}
+      {/* Toggle button */}
       {/* <label className="switch">
         <input type="checkbox" onClick={toggler} />
         <span className="slider"></span>
         <MdLocationOff className="location-off" />
         <MdLocationOn className="location-on" />
       </label> */}
-      <div className="search-bar">
-        <input
-          type="text"
-          className="search-type"
-          onChange={(event) => searchType(event.target.value)}
-          placeholder="I want to donate.."
-        />
-        <span className="in">in</span>
-        <input
-          type="text"
-          className="search-city"
-          onChange={(event) => autoSearch(type, event.target.value)}
-          placeholder="city"
-        />
-        <a className="search-button" href="#">
-          <FaSearch className="fa-search" />
-        </a>
+      <div className="my-search">
+        <div className="search-bar">
+          <input
+            type="text"
+            className="search-type"
+            onChange={(event) => searchType(event.target.value)}
+            placeholder="I want to donate.."
+          />
+          <span className="in">in</span>
+          <input
+            type="text"
+            className="search-city"
+            onChange={(event) => autoSearch(type, event.target.value)}
+            placeholder="city"
+          />
+          <a className="search-button" href="#">
+            <FaSearch className="fa-search" />
+          </a>
+        </div>
       </div>
       <div className="card-container">
         {ngos.map((ngo) => (

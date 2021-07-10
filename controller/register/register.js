@@ -20,7 +20,7 @@ exports.registerUser = async (req, res) => {
     if (user) {
       return res.status(400).json({ errors: [{ msg: "User already exist." }] });
     }
-    
+
     // creating a user instance
     user = new User({
       name,
@@ -32,7 +32,6 @@ exports.registerUser = async (req, res) => {
     });
 
     await user.save();
-
   } catch (error) {
     res.status(500).send(error.message);
   }

@@ -5,7 +5,7 @@ $my_black: #2f3640;
   display: flex;
   position: relative;
   justify-content: center;
-  top: 5rem;
+  top:3rem;
 
   .search-type {
     border: none;
@@ -17,6 +17,11 @@ $my_black: #2f3640;
     font-weight: normal;
     line-height: 40px;
     width: 125px;
+
+    &:focus ~ .search-button {
+      background: $orange;
+      color: white;
+    }
   }
 
   .in {
@@ -36,6 +41,11 @@ $my_black: #2f3640;
     font-weight: normal;
     line-height: 40px;
     width: 125px;
+
+    &:focus ~ .search-button {
+      background: $orange;
+      color: white;
+    }
   }
 
   .search-button {
@@ -51,17 +61,19 @@ $my_black: #2f3640;
     align-items: center;
     transition: 0.4s;
     text-decoration: none;
-
     & > .fa-search {
       font-size: 20px;
     }
-
-    &:hover {
-      background: $orange;
-      color: white;
-    }
   }
 }
+
+.search-type:focus ~ .my-search {
+  // display: flex;
+  // position: absolute;
+  // justify-content: center;
+  margin-top: 5rem;
+}
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -7,7 +7,7 @@
     "start": "node server",
     "server": "nodemon server",
     "templates": "npm start --prefix templates",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run templates\""
   },
   "author": "",
   "license": "ISC",

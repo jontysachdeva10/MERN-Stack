@@ -1,31 +1,36 @@
 const mongoose = require("mongoose");
 
-const ngoSchema = new mongoose.Schema({
+const DonateSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  address: {
+  amount: {
     type: String,
     required: true,
   },
-  city: {
+  upi: {
     type: String,
     required: true,
   },
-  type: {
+  location: {
     type: String,
     required: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+    unique: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  phone: {
-    type: String,
-    required: true,
+  date: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-module.exports = NGO = mongoose.model("ngo", ngoSchema);
+module.exports = Donate = mongoose.model("donate", DonateSchema);

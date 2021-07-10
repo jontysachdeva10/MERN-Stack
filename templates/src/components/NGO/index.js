@@ -53,8 +53,8 @@ const Ngo = ({ ngo: { name, address, city, type, email, phone } }) => {
           </div>
         </div>
       </div>
-      <PickupModal showPickupModal={showPickupModal} setShowPickupModal={setShowPickupModal} />
-      <DonateModal showDonateModal={showDonateModal} setShowDonateModal={setShowDonateModal} />
+      <PickupModal name={name} type={type} showPickupModal={showPickupModal} setShowPickupModal={setShowPickupModal} />
+      <DonateModal name={name} showDonateModal={showDonateModal} setShowDonateModal={setShowDonateModal} />
     </Fragment>
   );
 };
