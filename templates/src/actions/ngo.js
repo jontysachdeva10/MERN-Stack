@@ -1,5 +1,6 @@
 import Axios from "axios";
 import { GET_NGO, NGO_ERROR, PICKUP_SUCCESS, PICKUP_FAILED, DONATE_SUCCESS, DONATE_FAILED } from "./constants";
+import { setAlert } from "./alert";
 
 export const getNgoWithType = (ngoType) => async (dispatch) => {
   try {
@@ -52,7 +53,7 @@ export const requestPickup = ({ name, address, city, state, item, quantity, emai
 
       if (errors) {
         errors.forEach((error) => {
-          // dispatch(setAlert(error.msg, "danger"));
+          dispatch(setAlert(error.msg, "danger"));
         });
       }
 
@@ -83,7 +84,7 @@ export const donateMoney = ({ name, amount, upi, location, phone, email }) => as
 
       if (errors) {
         errors.forEach((error) => {
-          // dispatch(setAlert(error.msg, "danger"));
+          dispatch(setAlert(error.msg, "danger"));
         });
       }
 
