@@ -4,35 +4,90 @@ $my_black: #2f3640;
 $orange: #fd7e14;
 $grey: #cecdcdab;
 
-.head_line {
-  position: absolute;
-  margin-top: 180px;
-  margin-left: 350px;
-  width: 50%;
-  color: $my_black;
-  left: 20px;
-  font-weight: 100;
-  font-size: 1.2rem;
-  font-family: sans-serif;
-  h1 {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-  b {
-    text-transform: uppercase;
-    color: $orange;
-    font-weight: bold;
-  }
-  p {
-    margin-top: 22px;
-  }
+.main {
+  background-image: url(../../images/home-2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
 
-  @media screen and (max-width: 960px) {
-    margin-top: 170px;
-    margin-left: 220px;
-    font-size: 1.19rem;
-    h1 {
-      font-size: 1.78rem;
+.overlay-img {
+  height: 100%;
+  background: rgba(167, 167, 167, 0.341);
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  padding: 2.5rem 4.5rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+}
+
+.main-heading {
+  position: absolute;
+  color: #db0632;
+  font-family: 'UbuntuBold';
+  font-size: 6rem;
+  text-transform: uppercase;
+}
+
+.sub-heading {
+  font-size: 11rem;
+  font-family: 'UbuntuBold';
+  position: absolute;
+  bottom: 4.5rem;
+}
+
+.dot {
+  height: 18px;
+  width: 18px;
+  background-color: #db0632;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sub-heading__2 {
+  font-size: 4rem;
+  font-family: 'UbuntuRegular';
+  position: absolute;
+  bottom: 2.5rem;
+}
+
+.description {
+  font-family: 'UbuntuRegular';
+  font-size: 1.7rem;
+  position: absolute;
+  top: 4.5rem;
+  right: 4.5rem;
+  width: 34%;
+  color: #414141;
+}
+
+.menu {
+  font-family: 'UbuntuRegular';
+  font-size: 1.7rem;
+  position: absolute;
+  bottom: 2.5rem;
+  right: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      font-family: 'UbuntuRegularItalic';
+    }
+
+    &:visited {
+      color: black;
     }
   }
 }
@@ -82,9 +137,9 @@ $grey: #cecdcdab;
     margin-left: 40.5rem;
     color: $white;
     
-    @media screen and (max-width: 960px) {
-      margin-left: 485px;
-    }
+    // @media screen and (max-width: 960px) {
+    //   margin-left: 485px;
+    // }
   }
 
   #volunteer_button {
@@ -92,8 +147,8 @@ $grey: #cecdcdab;
     color: $orange;
     margin-left: 370px;
 
-    @media screen and (max-width: 960px) {
-      margin-left: 245px;
-    }
+    // @media screen and (max-width: 960px) {
+    //   margin-left: 245px;
+    // }
   }
 }
