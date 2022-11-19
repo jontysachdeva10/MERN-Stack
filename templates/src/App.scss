@@ -6,6 +6,30 @@ $grey: #cecdcdab;
 $light_orange: #ffa55b;
 $dark_orange: #ff7707;
 
+* {
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'UbuntuMedium';
+  src: url('./fonts/Ubuntu/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'UbuntuRegular';
+  src: url('./fonts/Ubuntu/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'UbuntuRegularItalic';
+  src: url('./fonts/Ubuntu/Ubuntu-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'UbuntuBold';
+  src: url('./fonts/Ubuntu/Ubuntu-Bold.ttf');
+}
+
 .login_heading {
   color: $my_black;
   font-size: 2.3rem;

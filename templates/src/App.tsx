@@ -13,14 +13,13 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        {/* Fragment is like a ghost element which doesnt show up in app */}
         <Fragment>
           <Route exact path="/" component={Landing} />
-            <Alert />
-            <Switch>
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/dashboard" component={Dashboard} />
-            </Switch>
+          <Alert />
+          <Switch>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/dashboard" component={Dashboard} />
+          </Switch>
         </Fragment>
       </Router>
     </Provider>
