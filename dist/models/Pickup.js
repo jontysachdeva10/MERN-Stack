@@ -1,9 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PickupSchema = void 0;
-// const mongoose = require("mongoose");
-const mongoose_1 = require("mongoose");
-const PickupSchema = new mongoose_1.Schema({
+exports.Pickup = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
+const PickupSchema = new mongoose_1.default.Schema({
     name: {
         type: String,
         required: true,
@@ -43,5 +45,5 @@ const PickupSchema = new mongoose_1.Schema({
         default: Date.now,
     },
 });
-exports.PickupSchema = PickupSchema;
-// module.exports = Pickup = mongoose.model("pickup", PickupSchema);
+const Pickup = mongoose_1.default.model("pickup", PickupSchema);
+exports.Pickup = Pickup;

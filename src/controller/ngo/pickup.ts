@@ -1,8 +1,8 @@
 const { validationResult } = require("express-validator");
 
-const Pickup = require("../../models/Pickup");
+import { Pickup } from "../../models/Pickup";
 
-exports.pickupRegister = async (req: any, res: any) => {
+const pickupRegister = async (req: any, res: any) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -27,4 +27,4 @@ exports.pickupRegister = async (req: any, res: any) => {
   }
 };
 
-export {};
+export { pickupRegister };

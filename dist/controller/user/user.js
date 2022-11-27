@@ -9,25 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connectDB = void 0;
-const mongoose = require('mongoose');
-// const config = require('config');
-// const db = config.get('mongoURI');
-const db = "mongodb+srv://jonty_sachdeva:jon@1234@cluster0.yj85i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
+exports.fetchAllUsers = void 0;
+const User_1 = require("../../models/User");
+const fetchAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoose.connect(db, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true,
-            useFindAndModify: false
-        });
-        console.log('Mongo DB connected..');
+        let user = yield User_1.User.find({});
+        res.json(user);
     }
     catch (error) {
-        console.error(error.message);
-        // Exit process with failure
-        process.exit(1);
+        console.error(error);
+        res.status(500).json({ msg: error.message });
     }
 });
-exports.connectDB = connectDB;
+exports.fetchAllUsers = fetchAllUsers;

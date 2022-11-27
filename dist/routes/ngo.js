@@ -9,7 +9,7 @@ const express_validator_1 = require("express-validator");
 /**
  * @description ADD NGO
  */
-const { addNgo } = require("../controller/ngo/ngo");
+const ngo_1 = require("../controller/ngo/ngo");
 router.post("/", [
     (0, express_validator_1.body)("name", "Name is required").notEmpty(),
     (0, express_validator_1.body)("address", "Address is required").notEmpty(),
@@ -17,16 +17,15 @@ router.post("/", [
     (0, express_validator_1.body)("type", "Type is required").notEmpty(),
     (0, express_validator_1.body)("email", "Email is required").isEmail(),
     (0, express_validator_1.body)("phone", "Enter valid Phone No.").isLength({ min: 10, max: 10 }),
-], addNgo);
+], ngo_1.addNgo);
 /**
  * @description GET NGO
  */
-const { getNgo } = require("../controller/ngo/ngo");
-router.get("/:type", getNgo);
+router.get("/:type", ngo_1.getNgo);
 /**
  * @description PICKUP REGISTER
  */
-const { pickupRegister } = require("../controller/ngo/pickup");
+const pickup_1 = require("../controller/ngo/pickup");
 router.post("/pickup", [
     (0, express_validator_1.body)("name", "Name is required").notEmpty(),
     (0, express_validator_1.body)("address", "Address is required").notEmpty(),
@@ -34,10 +33,10 @@ router.post("/pickup", [
     (0, express_validator_1.body)("state", "Please enter your State").notEmpty(),
     (0, express_validator_1.body)("email", "Please enter your valid Email").isEmail(),
     (0, express_validator_1.body)("phone", "Enter valid Phone No.").isLength({ min: 10, max: 10 }),
-], pickupRegister);
+], pickup_1.pickupRegister);
 /**
  * @description DONATE MONEY
  */
-const { donateMoney } = require("../controller/ngo/donate");
-router.post("/donate", [], donateMoney);
-module.exports = router;
+const donate_1 = require("../controller/ngo/donate");
+router.post("/donate", [], donate_1.donateMoney);
+exports.default = router;

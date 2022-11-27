@@ -1,8 +1,8 @@
 const { validationResult } = require("express-validator");
 
-const Donate = require("../../models/Donate");
+import { Donate } from "../../models/Donate";
 
-exports.donateMoney = async function (req: any, res: any) {
+const donateMoney = async function (req: any, res: any) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -25,4 +25,4 @@ exports.donateMoney = async function (req: any, res: any) {
   }
 };
 
-export {};
+export { donateMoney };

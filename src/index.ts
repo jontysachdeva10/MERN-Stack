@@ -1,22 +1,20 @@
-const express =  require('express');
-const connectDB = require('./config/db');
+import express from "express";
+import { connectDB } from "./config/db";
 
 const app = express();
 
-const registerUser =  require('./routes/register');
-const ngoRoutes = require('./routes/ngo');
+import registerUser from "./routes/register";
+import ngoRoutes from "./routes/ngo";
 
 // Init Middleware
-app.use(express.json({ extended: false }));
+app.use(express.json());
 
 // Routes Middleware
-app.use('/register', registerUser);
-app.use('/ngo', ngoRoutes);
+app.use("/register", registerUser);
+app.use("/ngo", ngoRoutes);
 
 // connect DB
 connectDB();
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
-
-export {};

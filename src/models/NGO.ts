@@ -1,16 +1,15 @@
-// const mongoose = require("mongoose");
-import { Schema } from 'mongoose';
+import mongoose from "mongoose";
 
 interface NGO {
-  name: string,
-  address: string,
-  city: string,
-  type: string,
-  email: string,
-  phone: string
+  name: string;
+  address: string;
+  city: string;
+  type: string;
+  email: string;
+  phone: string;
 }
 
-const ngoSchema = new Schema<NGO>({
+const ngoSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -38,6 +37,6 @@ const ngoSchema = new Schema<NGO>({
   },
 });
 
-export { ngoSchema };
+const NGO = mongoose.model("ngo", ngoSchema);
 
-// module.exports = NGO = mongoose.model("ngo", ngoSchema);
+export { NGO };

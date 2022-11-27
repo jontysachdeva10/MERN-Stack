@@ -1,12 +1,13 @@
 const { validationResult } = require("express-validator");
 
 // Import User model
-const User = require("../../models/User");
+// const User = require("../../models/User");
+import { User } from "../../models/User";
 
 /**
  * @description ADD USER
  */
-exports.registerUser = async (req: any, res: any) => {
+const registerUser = async (req: any, res: any) => {
   // check validation errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -37,4 +38,4 @@ exports.registerUser = async (req: any, res: any) => {
   }
 };
 
-export {};
+export { registerUser };

@@ -1,11 +1,11 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
 import { body } from "express-validator";
 
 /**
  * @description ADD NGO
  */
-const { addNgo } = require("../controller/ngo/ngo");
+import { addNgo, getNgo } from "../controller/ngo/ngo";
 router.post(
   "/",
   [
@@ -22,13 +22,12 @@ router.post(
 /**
  * @description GET NGO
  */
-const { getNgo } = require("../controller/ngo/ngo");
 router.get("/:type", getNgo);
 
 /**
  * @description PICKUP REGISTER
  */
-const { pickupRegister } = require("../controller/ngo/pickup");
+import { pickupRegister } from "../controller/ngo/pickup";
 router.post(
   "/pickup",
   [
@@ -45,13 +44,7 @@ router.post(
 /**
  * @description DONATE MONEY
  */
-const { donateMoney } = require("../controller/ngo/donate");
-router.post(
-  "/donate",
-  [
+import { donateMoney } from "../controller/ngo/donate";
+router.post("/donate", [], donateMoney);
 
-  ],
-  donateMoney
-);
-
-module.exports = router;
+export default router;

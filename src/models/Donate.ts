@@ -1,17 +1,16 @@
-// const mongoose = require("mongoose");
-import { Schema } from 'mongoose';
+import mongoose from "mongoose";
 
 interface Donate {
-  name: string,
-  amount: string,
-  upi: string,
-  location:string,
-  phone: string,
-  email: string,
-  date: Date
+  name: string;
+  amount: string;
+  upi: string;
+  location: string;
+  phone: string;
+  email: string;
+  date: Date;
 }
 
-const DonateSchema = new Schema<Donate>({
+const DonateSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -44,5 +43,6 @@ const DonateSchema = new Schema<Donate>({
   },
 });
 
-export { DonateSchema };
-// module.exports = Donate = mongoose.model("donate", DonateSchema);
+const Donate = mongoose.model("donate", DonateSchema);
+
+export { Donate };

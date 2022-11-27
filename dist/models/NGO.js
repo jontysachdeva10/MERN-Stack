@@ -1,9 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ngoSchema = void 0;
-// const mongoose = require("mongoose");
-const mongoose_1 = require("mongoose");
-const ngoSchema = new mongoose_1.Schema({
+exports.NGO = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
+const ngoSchema = new mongoose_1.default.Schema({
     name: {
         type: String,
         required: true,
@@ -30,5 +32,5 @@ const ngoSchema = new mongoose_1.Schema({
         required: true,
     },
 });
-exports.ngoSchema = ngoSchema;
-// module.exports = NGO = mongoose.model("ngo", ngoSchema);
+const NGO = mongoose_1.default.model("ngo", ngoSchema);
+exports.NGO = NGO;

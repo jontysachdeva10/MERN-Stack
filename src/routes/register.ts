@@ -1,13 +1,13 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
 import { body } from "express-validator";
-const { registerUser } = require("../controller/register/register");
+import { registerUser } from "../controller/register/register";
 
 /**
  * @description ADD USER
  */
 router.post(
-  "/",
+  "/users",
   [
     body("name", "Name is required").notEmpty(),
     body("address", "Address is required").notEmpty(),
@@ -19,4 +19,4 @@ router.post(
   registerUser
 );
 
-module.exports = router;
+export default router;

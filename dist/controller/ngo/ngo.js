@@ -9,12 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const { validationResult } = require('express-validator');
-const NGO = require('../../models/NGO');
+exports.getNgo = exports.addNgo = void 0;
+const { validationResult } = require("express-validator");
+const NGO_1 = require("../../models/NGO");
 /**
  * @description ADD NGO
  */
-exports.addNgo = function (req, res) {
+const addNgo = function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -22,11 +23,11 @@ exports.addNgo = function (req, res) {
         }
         const { name, address, city, type, email, phone } = req.body;
         try {
-            let ngo = yield NGO.findOne({ email }); // findOne returns a promise, so instead, we are using async/await & using try-catch to handle response and errors
+            let ngo = yield NGO_1.NGO.findOne({ email }); // findOne returns a promise, so instead, we are using async/await & using try-catch to handle response and errors
             if (ngo) {
-                return res.status(400).json({ errors: [{ msg: 'NGO already exist' }] });
+                return res.status(400).json({ errors: [{ msg: "NGO already exist" }] });
             }
-            ngo = new NGO({
+            ngo = new NGO_1.NGO({
                 name,
                 address,
                 city,
@@ -43,22 +44,23 @@ exports.addNgo = function (req, res) {
         }
     });
 };
+exports.addNgo = addNgo;
 /**
  * @description GET NGO
  */
-exports.getNgo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getNgo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { type } = req.params;
         const { city } = req.query;
         let ngo;
         if (city) {
-            ngo = yield NGO.find({ type, city });
+            ngo = yield NGO_1.NGO.find({ type, city });
         }
         else {
-            ngo = yield NGO.find({ type });
+            ngo = yield NGO_1.NGO.find({ type });
         }
         if (!ngo) {
-            return res.status(404).json({ msg: 'NGO not found' });
+            return res.status(404).json({ msg: "NGO not found" });
         }
         res.json(ngo);
     }
@@ -67,3 +69,4 @@ exports.getNgo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(500).json({ msg: error.message });
     }
 });
+exports.getNgo = getNgo;

@@ -9,16 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.pickupRegister = void 0;
 const { validationResult } = require("express-validator");
-const Pickup = require("../../models/Pickup");
-exports.pickupRegister = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const Pickup_1 = require("../../models/Pickup");
+const pickupRegister = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
     const { name, address, city, state, item, quantity, phone, email } = req.body;
     try {
-        let pickup = new Pickup({
+        let pickup = new Pickup_1.Pickup({
             name,
             address,
             city,
@@ -34,3 +35,4 @@ exports.pickupRegister = (req, res) => __awaiter(void 0, void 0, void 0, functio
         res.status(500).send(error.message);
     }
 });
+exports.pickupRegister = pickupRegister;

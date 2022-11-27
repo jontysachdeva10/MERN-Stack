@@ -1,19 +1,18 @@
-// const mongoose = require("mongoose");
-import { Schema } from 'mongoose';
+import mongoose from "mongoose";
 
 interface Pickup {
-  name: string,
-  address: string,
-  city: string,
-  state: string,
-  item: string,
-  quantity: string,
-  phone: string,
-  email: string,
-  date: Date
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+  item: string;
+  quantity: string;
+  phone: string;
+  email: string;
+  date: Date;
 }
 
-const PickupSchema = new Schema<Pickup>({
+const PickupSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -54,5 +53,6 @@ const PickupSchema = new Schema<Pickup>({
   },
 });
 
-export { PickupSchema }
-// module.exports = Pickup = mongoose.model("pickup", PickupSchema);
+const Pickup = mongoose.model("pickup", PickupSchema);
+
+export { Pickup };

@@ -9,9 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.donateMoney = void 0;
 const { validationResult } = require("express-validator");
-const Donate = require("../../models/Donate");
-exports.donateMoney = function (req, res) {
+const Donate_1 = require("../../models/Donate");
+const donateMoney = function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -19,7 +20,7 @@ exports.donateMoney = function (req, res) {
         }
         const { name, amount, upi, location, phone, email } = req.body;
         try {
-            let donate = new Donate({
+            let donate = new Donate_1.Donate({
                 name,
                 amount,
                 upi,
@@ -34,3 +35,4 @@ exports.donateMoney = function (req, res) {
         }
     });
 };
+exports.donateMoney = donateMoney;

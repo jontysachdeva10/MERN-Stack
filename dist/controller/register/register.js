@@ -9,13 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.registerUser = void 0;
 const { validationResult } = require("express-validator");
 // Import User model
-const User = require("../../models/User");
+// const User = require("../../models/User");
+const User_1 = require("../../models/User");
 /**
  * @description ADD USER
  */
-exports.registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // check validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -24,12 +26,12 @@ exports.registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function*
     const { name, address, city, state, email, phone } = req.body;
     try {
         // check if user exists
-        let user = yield User.findOne({ phone });
+        let user = yield User_1.User.findOne({ phone });
         if (user) {
             return res.status(400).json({ errors: [{ msg: "User already exist." }] });
         }
         // creating a user instance
-        user = new User({
+        user = new User_1.User({
             name,
             address,
             city,
@@ -43,3 +45,4 @@ exports.registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.status(500).send(error.message);
     }
 });
+exports.registerUser = registerUser;

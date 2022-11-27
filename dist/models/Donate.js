@@ -1,9 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DonateSchema = void 0;
-// const mongoose = require("mongoose");
-const mongoose_1 = require("mongoose");
-const DonateSchema = new mongoose_1.Schema({
+exports.Donate = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
+const DonateSchema = new mongoose_1.default.Schema({
     name: {
         type: String,
         required: true,
@@ -35,5 +37,5 @@ const DonateSchema = new mongoose_1.Schema({
         default: Date.now,
     },
 });
-exports.DonateSchema = DonateSchema;
-// module.exports = Donate = mongoose.model("donate", DonateSchema);
+const Donate = mongoose_1.default.model("donate", DonateSchema);
+exports.Donate = Donate;
