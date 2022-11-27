@@ -1,28 +1,33 @@
-import React, { Fragment, useState } from "react";
-import { FaSearch, FaSignOutAlt } from "react-icons/all";
-import { getNgoWithType, getNgoWithTypeAndCity } from "../../actions/ngo";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import "./dashboard.scss";
-import { Fix_Me_Later } from "../../actions/constants";
-import { Link } from "react-router-dom";
-import Ngo from "../NGO";
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/forbid-prop-types */
+import React, { useState } from 'react';
+import { FaSearch, FaSignOutAlt } from 'react-icons/all';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getNgoWithType, getNgoWithTypeAndCity } from '../../actions/ngo';
+import './dashboard.scss';
+import { fixMeLater } from '../../actions/constants';
+import Ngo from '../NGO';
 
 type DashboardProps = {
-  getNgoWithType: Fix_Me_Later,
-  getNgoWithTypeAndCity: Fix_Me_Later,
+  getNgoWithType: fixMeLater,
+  getNgoWithTypeAndCity: fixMeLater,
   ngo: {
     ngos: Array<string>
   }
   auth: {
-    user: Fix_Me_Later
+    user?: fixMeLater
   }
 }
 
-const Dashboard = ({ getNgoWithType, getNgoWithTypeAndCity, ngo: { ngos }, auth: { user } }: DashboardProps) => {
-  const [type, setType] = useState("");
+function Dashboard({
+  getNgoWithType, getNgoWithTypeAndCity, ngo: { ngos }, auth: { user },
+}: DashboardProps) {
+  const [type, setType] = useState('');
 
-  const searchType = (event: Fix_Me_Later) => {
+  const searchType = (event: fixMeLater) => {
     setType(event);
     getNgoWithType(event);
   };
@@ -64,22 +69,22 @@ const Dashboard = ({ getNgoWithType, getNgoWithTypeAndCity, ngo: { ngos }, auth:
         </div>
       </div>
       <div className="card-container">
-        {ngos.map((ngo: Fix_Me_Later) => (
+        {ngos.map((ngo: fixMeLater) => (
           <Ngo ngo={ngo} />
         ))}
       </div>
     </div>
   );
+}
+
+Dashboard.propTypes = {
+  getNgoWithType: PropTypes.any.isRequired,
+  getNgoWithTypeAndCity: PropTypes.any.isRequired,
+  ngo: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
-// Dashboard.propTypes = {
-//   getNgoWithType: PropTypes.any.isRequired,
-//   getNgoWithTypeAndCity: PropTypes.any.isRequired,
-//   ngo: PropTypes.object.isRequired,
-//   auth: PropTypes.object.isRequired,
-// };
-
-const mapStateToProps = (state: Fix_Me_Later) => ({
+const mapStateToProps = (state: fixMeLater) => ({
   ngo: state.ngo,
   auth: state.auth,
 });

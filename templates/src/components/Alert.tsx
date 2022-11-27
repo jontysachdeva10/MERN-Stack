@@ -1,20 +1,22 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { Fix_Me_Later } from "../actions/constants";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { fixMeLater } from '../actions/constants';
 
-const Alert = ({ alerts }: Fix_Me_Later) =>
-  alerts !== null &&
-  alerts.length > 0 &&
-  alerts.map((alert: Fix_Me_Later) => (
+function Alert({ alerts }: fixMeLater) {
+  return alerts !== null
+  && alerts.length > 0
+  && alerts.map((alert: fixMeLater) => (
     <div key={alert.id} className={`alert alert-${alert.alertType}`}>{alert.msg}</div>
   ));
+}
 
 Alert.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   alerts: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state: Fix_Me_Later) => ({
+const mapStateToProps = (state: fixMeLater) => ({
   alerts: state.alert,
 });
 

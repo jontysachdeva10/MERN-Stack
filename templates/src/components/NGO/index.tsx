@@ -1,10 +1,15 @@
-import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
-import { FaMapPin, FaCartPlus, FaPhoneAlt, FaAt } from "react-icons/fa";
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable max-len */
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  FaMapPin, FaCartPlus, FaPhoneAlt, FaAt,
+} from 'react-icons/fa';
 // import PickupModal from './PickupModal';
 // import DonateModal from './DonateModal';
 
-import "./ngo.scss";
+import './ngo.scss';
 
 type NgoProps = {
   ngo: {
@@ -17,9 +22,11 @@ type NgoProps = {
   };
 };
 
-const Ngo = ({
-  ngo: { name, address, city, type, email, phone },
-}: NgoProps) => {
+function Ngo({
+  ngo: {
+    name, address, city, type, email, phone,
+  },
+}: NgoProps) {
   // const [showPickupModal, setShowPickupModal] = useState(false);
   // const [showDonateModal, setShowDonateModal] = useState(false);
 
@@ -37,7 +44,9 @@ const Ngo = ({
           <div className="card_content_address">
             <FaMapPin className="fa-address" />
             <span>
-              {address}, {city}
+              {address}
+              ,
+              {city}
             </span>
           </div>
           <div className="card_content_email">
@@ -49,16 +58,12 @@ const Ngo = ({
             <span>{phone}</span>
           </div>
           <div id="pickup_btn">
-            <button 
-              // onClick={() => setShowPickupModal(true)}
-            >
+            <button>
               Request Pickup
             </button>
           </div>
           <div id="donate_btn">
-            <button
-            //  onClick={() => setShowDonateModal(true)}
-            >
+            <button>
               Donate Money
             </button>
           </div>
@@ -68,7 +73,7 @@ const Ngo = ({
       {/* <DonateModal name={name} showDonateModal={showDonateModal} setShowDonateModal={setShowDonateModal} /> */}
     </div>
   );
-};
+}
 
 Ngo.propTypes = {
   ngo: PropTypes.object.isRequired,

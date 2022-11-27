@@ -1,17 +1,17 @@
 import {
   REGISTER_SUCCESS,
   REGISTER_FAILED,
-  Fix_Me_Later,
-} from "../actions/constants";
+  fixMeLater,
+} from '../actions/constants';
 
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem('token'),
   isAuthenticated: null,
   loading: true,
   user: null,
 };
 
-export default function (state = initialState, action: Fix_Me_Later) {
+export default function (action: fixMeLater, state = initialState) {
   const { type, payload } = action;
 
   switch (type) {

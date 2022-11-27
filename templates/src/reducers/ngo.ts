@@ -1,4 +1,4 @@
-import { Fix_Me_Later, GET_NGO, NGO_ERROR } from "../actions/constants";
+import { fixMeLater, GET_NGO, NGO_ERROR } from '../actions/constants';
 
 const initialState = {
   ngos: [],
@@ -7,7 +7,7 @@ const initialState = {
   error: {},
 };
 
-export default function (state = initialState, action: Fix_Me_Later) {
+export default function (action: fixMeLater, state = initialState) {
   const { type, payload } = action;
 
   switch (type) {

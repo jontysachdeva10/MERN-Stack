@@ -1,12 +1,15 @@
-import React, { FormEvent, Fragment, useState } from "react";
-import { connect } from "react-redux";
-import { setAlert } from "../../actions/alert";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { registerAction } from "../../actions/register";
-import { FaSignOutAlt } from "react-icons/fa";
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { FormEvent, useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { FaSignOutAlt } from 'react-icons/fa';
+import { registerAction } from '../../actions/register';
+import { setAlert } from '../../actions/alert';
 import './register.scss';
-import { Fix_Me_Later } from "../../actions/constants";
+import { fixMeLater } from '../../actions/constants';
 
 type RegisterProps = {
   setAlert: Function,
@@ -14,19 +17,21 @@ type RegisterProps = {
   isAuthenticated?: Boolean,
 }
 
-const Register = ({ setAlert, registerAction }: RegisterProps) => {
+function Register({ setAlert, registerAction }: RegisterProps) {
   const [formData, setFormData] = useState({
-    name: "",
-    address: "",
-    city: "",
-    state: "",
-    email: "",
-    phone: "",
+    name: '',
+    address: '',
+    city: '',
+    state: '',
+    email: '',
+    phone: '',
   });
 
-  const { name, address, city, state, email, phone } = formData;
+  const {
+    name, address, city, state, email, phone,
+  } = formData;
 
-  const onChangeHandler = (event: Fix_Me_Later) => {
+  const onChangeHandler = (event: fixMeLater) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
@@ -35,8 +40,10 @@ const Register = ({ setAlert, registerAction }: RegisterProps) => {
 
   const onSubmitHandler = async (event: FormEvent) => {
     event.preventDefault();
-    setAlert("Registeration Successful", "success");
-    registerAction({ name, address, city, state, phone });
+    setAlert('Registeration Successful', 'success');
+    registerAction({
+      name, address, city, state, phone,
+    });
   };
 
   return (
@@ -126,18 +133,21 @@ const Register = ({ setAlert, registerAction }: RegisterProps) => {
           ** You will be scheduled for an interview, after registering yourself.
         </span>
         <span className="my-1">
-          Changed your mind?{" "}
-          <span className="my-2">Then, how about{" "}
-          <Link to="/dashboard" className="links">
-            Donating
-          </Link>
-          ?
+          Changed your mind?
+          {' '}
+          <span className="my-2">
+            Then, how about
+            {' '}
+            <Link to="/dashboard" className="links">
+              Donating
+            </Link>
+            ?
           </span>
         </span>
       </div>
     </div>
   );
-};
+}
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
@@ -145,7 +155,7 @@ Register.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = (state: Fix_Me_Later) => ({
+const mapStateToProps = (state: fixMeLater) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 

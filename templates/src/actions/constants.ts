@@ -8,5 +8,4 @@ export const PICKUP_SUCCESS = 'PICKUP_SUCCESS';
 export const PICKUP_FAILED = 'PICKUP_FAILED';
 export const DONATE_SUCCESS = 'DONATE_SUCCESS';
 export const DONATE_FAILED = 'DONATE_FAILED';
-
-export type Fix_Me_Later = any;
+export type fixMeLater = any;

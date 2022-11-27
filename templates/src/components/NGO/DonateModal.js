@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from "react";
-import Modal from "react-modal";
-import styled from "styled-components";
-import { MdClose } from "react-icons/md";
-import { donateMoney } from "../../actions/ngo";
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import styled from 'styled-components';
+import { MdClose } from 'react-icons/md';
+import { donateMoney } from '../../actions/ngo';
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
@@ -72,20 +72,21 @@ const ModalHeadline = styled.div`
 //   margin-top: 1rem;
 // `;
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
-const DonateModal = ({ name, showDonateModal, setShowDonateModal }) => {
-
+function DonateModal({ name, showDonateModal, setShowDonateModal }) {
   const [formData, setFormData] = useState({
-    full_name: "",
-    amount: "",
-    upi: "",
-    location: "",
-    phone: "",
-    email: "",
+    full_name: '',
+    amount: '',
+    upi: '',
+    location: '',
+    phone: '',
+    email: '',
   });
 
-  const { full_name, amount, upi, location, phone, email } = formData;
+  const {
+    full_name, amount, upi, location, phone, email,
+  } = formData;
 
   const onChangeHandler = (event) => {
     setFormData({
@@ -96,100 +97,109 @@ const DonateModal = ({ name, showDonateModal, setShowDonateModal }) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    donateMoney({ full_name, amount, upi, location, phone, email });
+    donateMoney({
+      full_name, amount, upi, location, phone, email,
+    });
   };
 
   return (
-    <Fragment>
-      <Modal
-        id="donate_modal"
-        isOpen={showDonateModal}
-        onRequestClose={() => setShowDonateModal(false)}
-      >
-        <ModalHeader>
-          <AboutUs>
-            Donate <span className="about_heading">Money</span> for {name}
-          </AboutUs>
-        </ModalHeader>
-        {/* <Line></Line> */}
-        <ModalHeadline>
-          <p>If any queries, call us at <span>1234567890</span></p>
-        </ModalHeadline>
-        <form className="donate_form" onSubmit={(event) => onSubmitHandler(event)}>
-          <div className="form-group">
-            <input
-              id="donate_fields"
-              type="text"
-              name="name"
-              value={full_name}
-              placeholder="Full Name"
-              onChange={(event) => onChangeHandler(event)}
-              required
-            />
-          </div>
-          <div className="form-group amount-1">
-            <input
-              id="donate_fields"
-              type="text"
-              name="amount"
-              value={amount}
-              placeholder="Amount"
-              onChange={(event) => onChangeHandler(event)}
-              required
-            />
-          </div>
-          <div className="form-group upi-1">
-            <input
-              id="donate_fields"
-              type="text"
-              name="upi"
-              value={upi}
-              placeholder="UPI"
-              onChange={(event) => onChangeHandler(event)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              id="donate_fields"
-              type="text"
-              name="location"
-              value={location}
-              placeholder="City, State"
-              onChange={(event) => onChangeHandler(event)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              id="donate_fields"
-              type="text"
-              name="email"
-              value={email}
-              placeholder="Email Address"
-              onChange={(event) => onChangeHandler(event)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              id="donate_fields"
-              type="text"
-              name="phone"
-              value={phone}
-              placeholder="Phone Number"
-              onChange={(event) => onChangeHandler(event)}
-              required
-            />
-          </div>
-          <input id="donate_btn_2" type="submit" value="Donate" />
-        </form>
-        <CloseModalButton
-          onClick={() => setShowDonateModal(false)}
-        ></CloseModalButton>
-      </Modal>
-    </Fragment>
+    <Modal
+      id="donate_modal"
+      isOpen={showDonateModal}
+      onRequestClose={() => setShowDonateModal(false)}
+    >
+      <ModalHeader>
+        <AboutUs>
+          Donate
+          {' '}
+          <span className="about_heading">Money</span>
+          {' '}
+          for
+          {' '}
+          {name}
+        </AboutUs>
+      </ModalHeader>
+      {/* <Line></Line> */}
+      <ModalHeadline>
+        <p>
+          If any queries, call us at
+          <span>1234567890</span>
+        </p>
+      </ModalHeadline>
+      <form className="donate_form" onSubmit={(event) => onSubmitHandler(event)}>
+        <div className="form-group">
+          <input
+            id="donate_fields"
+            type="text"
+            name="name"
+            value={full_name}
+            placeholder="Full Name"
+            onChange={(event) => onChangeHandler(event)}
+            required
+          />
+        </div>
+        <div className="form-group amount-1">
+          <input
+            id="donate_fields"
+            type="text"
+            name="amount"
+            value={amount}
+            placeholder="Amount"
+            onChange={(event) => onChangeHandler(event)}
+            required
+          />
+        </div>
+        <div className="form-group upi-1">
+          <input
+            id="donate_fields"
+            type="text"
+            name="upi"
+            value={upi}
+            placeholder="UPI"
+            onChange={(event) => onChangeHandler(event)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            id="donate_fields"
+            type="text"
+            name="location"
+            value={location}
+            placeholder="City, State"
+            onChange={(event) => onChangeHandler(event)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            id="donate_fields"
+            type="text"
+            name="email"
+            value={email}
+            placeholder="Email Address"
+            onChange={(event) => onChangeHandler(event)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            id="donate_fields"
+            type="text"
+            name="phone"
+            value={phone}
+            placeholder="Phone Number"
+            onChange={(event) => onChangeHandler(event)}
+            required
+          />
+        </div>
+        <input id="donate_btn_2" type="submit" value="Donate" />
+      </form>
+      <CloseModalButton
+        onClick={() => setShowDonateModal(false)}
+      />
+    </Modal>
   );
-};
+}
 
 export default DonateModal;

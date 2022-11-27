@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from "react";
-import Modal from "react-modal";
-import styled from "styled-components";
+import React, { Fragment, useState } from 'react';
+import Modal from 'react-modal';
+import styled from 'styled-components';
 // import { Collapse } from "react-bootstrap";
-import { MdClose } from "react-icons/md";
-import { requestPickup } from "../../actions/ngo";
+import { MdClose } from 'react-icons/md';
+import { requestPickup } from '../../actions/ngo';
 // import { FaArrowDown } from "react-icons/fa";
 
 const CloseModalButton = styled(MdClose)`
@@ -89,21 +89,25 @@ const ModalHeader = styled.div`
   width: 111%;
 `;
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
-const PickupModal = ({ name, type, showPickupModal, setShowPickupModal }) => {
+function PickupModal({
+  name, type, showPickupModal, setShowPickupModal,
+}) {
   //   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
-    full_name: "",
-    address: "",
-    city: "",
-    state: "",
-    quantity: "",
-    email: "",
-    phone: "",
+    full_name: '',
+    address: '',
+    city: '',
+    state: '',
+    quantity: '',
+    email: '',
+    phone: '',
   });
 
-  const { full_name, address, city, state, quantity, email, phone } = formData;
+  const {
+    full_name, address, city, state, quantity, email, phone,
+  } = formData;
 
   const onChangeHandler = (event) => {
     setFormData({
@@ -114,114 +118,124 @@ const PickupModal = ({ name, type, showPickupModal, setShowPickupModal }) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    requestPickup({ full_name, address, city, state, type, quantity, email, phone });
-  }
+    requestPickup({
+      full_name, address, city, state, type, quantity, email, phone,
+    });
+  };
 
   return (
-    <Fragment>
-      <Modal
-        id="pickup_modal"
-        isOpen={showPickupModal}
-        onRequestClose={() => setShowPickupModal(false)}
-      >
-        <ModalHeader>
-          <AboutUs>
-            Request <span className="about_heading">Pickup</span> for {name}
-          </AboutUs>
-        </ModalHeader>
-        {/* <Line></Line> */}
-        <ModalHeadline>
-          <p>If any queries, call us at <span>1234567890</span>, before
+    <Modal
+      id="pickup_modal"
+      isOpen={showPickupModal}
+      onRequestClose={() => setShowPickupModal(false)}
+    >
+      <ModalHeader>
+        <AboutUs>
+          Request
+          {' '}
+          <span className="about_heading">Pickup</span>
+          {' '}
+          for
+          {' '}
+          {name}
+        </AboutUs>
+      </ModalHeader>
+      {/* <Line></Line> */}
+      <ModalHeadline>
+        <p>
+          If any queries, call us at
+          <span>1234567890</span>
+          , before
           requesting for pickup.
-          </p>
-        </ModalHeadline>
-        <form className="pickup_form" onSubmit={(event) => onSubmitHandler(event)}>
-          <div className="form-group">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="name"
-              value={full_name}
-              onChange={(event) => onChangeHandler(event)}
-              placeholder="Full Name"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="pickup_address"
-              value={address}
-              placeholder="Pickup Address"
-              required
-            />
-          </div>
-          <div className="form-group city-1">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="city"
-              value={city}
-              placeholder="City"
-              required
-            />
-          </div>
-          <div className="form-group state-1">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="state"
-              value={state}
-              placeholder="State"
-              required
-            />
-          </div>
-          <div className="form-group item">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="item"
-              placeholder="Item"
-              value={type}
-              disabled
-              required
-            />
-          </div>
-          <div className="form-group quantity">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="quantity"
-              value={quantity}
-              placeholder="Quantity in detail"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="phone"
-              value={phone}
-              placeholder="Phone No"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              id="pickup_fields"
-              type="text"
-              name="email"
-              value={email}
-              placeholder="Email Address"
-              required
-            />
-          </div>
-          <input id="pickup_btn_2" type="submit" value="Request Pickup" />
-        </form>
-        {/* <span id="donate_heading">Want to donate money?</span> */}
-        {/* <ArrowDown
+        </p>
+      </ModalHeadline>
+      <form className="pickup_form" onSubmit={(event) => onSubmitHandler(event)}>
+        <div className="form-group">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="name"
+            value={full_name}
+            onChange={(event) => onChangeHandler(event)}
+            placeholder="Full Name"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="pickup_address"
+            value={address}
+            placeholder="Pickup Address"
+            required
+          />
+        </div>
+        <div className="form-group city-1">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="city"
+            value={city}
+            placeholder="City"
+            required
+          />
+        </div>
+        <div className="form-group state-1">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="state"
+            value={state}
+            placeholder="State"
+            required
+          />
+        </div>
+        <div className="form-group item">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="item"
+            placeholder="Item"
+            value={type}
+            disabled
+            required
+          />
+        </div>
+        <div className="form-group quantity">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="quantity"
+            value={quantity}
+            placeholder="Quantity in detail"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="phone"
+            value={phone}
+            placeholder="Phone No"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            id="pickup_fields"
+            type="text"
+            name="email"
+            value={email}
+            placeholder="Email Address"
+            required
+          />
+        </div>
+        <input id="pickup_btn_2" type="submit" value="Request Pickup" />
+      </form>
+      {/* <span id="donate_heading">Want to donate money?</span> */}
+      {/* <ArrowDown
           onClick={() => setOpen(!open)}
           aria-controls="donate_form"
           aria-expanded={open}
@@ -247,12 +261,11 @@ const PickupModal = ({ name, type, showPickupModal, setShowPickupModal }) => {
             </div>
           </form>
         </Collapse> */}
-        <CloseModalButton
-          onClick={() => setShowPickupModal(false)}
-        ></CloseModalButton>
-      </Modal>
-    </Fragment>
+      <CloseModalButton
+        onClick={() => setShowPickupModal(false)}
+      />
+    </Modal>
   );
-};
+}
 
 export default PickupModal;
