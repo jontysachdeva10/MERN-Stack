@@ -2,11 +2,13 @@ import './App.scss';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
 // import { Provider } from 'react-redux';
-import Landing from './components/Landing';
+import Home from './pages/Home';
+import Footer from './components/Footer';
+// import About from './pages/About';
 // import Register from './components/Register';
 // import Alert from './components/Alert';
 // import Dashboard from './components/Dashboard';
-import About from './components/About';
+// import About from './pages/About';
 // Redux
 // import store from './store';
 
@@ -16,16 +18,14 @@ function App() {
     <div>
       {/* <Router>
         <>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Home} />
           <Switch>
             <Route exact path="/about" component={About} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/dashboard" component={Dashboard} />
           </Switch>
         </>
       </Router> */}
-      <Landing />
-      <About />
+      <Home />
+      <Footer />
     </div>
     // </Provider>
   );

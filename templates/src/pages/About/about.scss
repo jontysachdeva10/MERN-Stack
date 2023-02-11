@@ -1,0 +1,51 @@
+.about-container {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-image {
+  position: absolute;
+  background-image: url(../../images/about-3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 30%;
+  height: 88%;
+  top: 0rem;
+  left: 4.5rem;
+}
+
+.overlay-img-about {
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  background: #da0630c7;
+  height: 100%;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+//   grid-template-columns: 1fr 3fr;
+//   grid-gap: 3rem;
+}
+
+.about-heading {
+  position: relative;
+  font-size: 5rem;
+  font-family: "UbuntuBold";
+  span {
+    font-size: 6rem;
+    color: #c7c6b7;
+  }
+}
+
+.about-description {
+    padding-top: 2rem;
+    font-family: 'UbuntuRegular';
+    position: relative;
+    font-size: 2rem;
+    color: #c7c6b7;
+}
